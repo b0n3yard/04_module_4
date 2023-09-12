@@ -47,8 +47,21 @@ function show(){
     document.querySelector('.hidden').style.display = 'block';
     var count = 0;
     nextquest(count);
-
+    // var a = new Date();
+    // console.log(a)
+    setInterval(function(){
+        var day = new Date();
+        console.log(day)
+        var sec = day.getMinutes() * 60 + day.getSeconds();
+        var settime = 60 * 5;
+        var countdown = settime - sec % settime;
+        var final = parseInt(countdown / 60) + ':' + countdown % 60;
+        document.querySelector('.timer').innerHTML = final; 
+    },500); 
 }
+
+// var d = new Date();
+// console.log(d)
 console.log(player.score)
 btn.addEventListener('click',show)
 rbtn.addEventListener('click', function (){console.log( "main" + count); count = right(count, player.score); console.log( "after" + count);});
