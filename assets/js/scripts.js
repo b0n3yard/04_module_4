@@ -1,11 +1,16 @@
- var player ={ score: 0}
+ var player ={ 
+    name: '',
+    score: 0}
  var count  = 0;
  var score = 0;
+ var wrbtn = document.querySelectorAll('.wrbtn');
  var wbtn1 = document.querySelector('.wans1');
  var wbtn2 = document.querySelector('.wans2');
+ console.log(wrbtn)
  var wbtn3 = document.querySelector('.wans3');
- //var wbtn  = wbtn1 + wbtn2 +wbtn3;
  var rbtn = document.querySelector('.rans1');
+ var totaltime = 30;
+ var end = document.querySelector('.end');
  function exam(){
     
     
@@ -13,8 +18,11 @@
 function wrong(){
     count = count + 1;
     console.log("wrong");
+    document.createElement('p').innerHTML = 'correct'
+    totaltime = totaltime - 4;
+    console.log(totaltime)
     nextquest(count);
-    return count;
+    return count, totaltime;
 }
 function right(count){
     console.log(count);
@@ -24,6 +32,8 @@ function right(count){
     console.log(count);
     console.log("right");
     document.querySelector('.score').innerHTML = player.score;
+    document.querySelector('span.end').innerHTML = 'correct';
+    
     nextquest(count);
     return count;
     
@@ -45,19 +55,26 @@ var btn = document.querySelector('#generate')
 
 function show(){
     document.querySelector('.hidden').style.display = 'block';
+    var timer = setInterval(function(){
+        totaltime--
+        var minutes = Math.floor(totaltime / 60);
+        var secs = totaltime % 60;
+        if (totaltime <= 0){
+            clearInterval(timer);
+            endgame();
+
+        }
+        document.querySelector('.timer').innerHTML = minutes + ':' + secs; 
+    },1000); 
     var count = 0;
     nextquest(count);
-    // var a = new Date();
-    // console.log(a)
-    setInterval(function(){
-        var day = new Date();
-        console.log(day)
-        var sec = day.getMinutes() * 60 + day.getSeconds();
-        var settime = 60 * 5;
-        var countdown = settime - sec % settime;
-        var final = parseInt(countdown / 60) + ':' + countdown % 60;
-        document.querySelector('.timer').innerHTML = final; 
-    },500); 
+}
+function endgame(){
+    document.querySelector('.hidden').style.display = 'none';
+    document.querySelector('.end').style.display = 'block';
+    console.log("hi");
+    end.textContent = 'your score is: ' + player.score;
+
 }
 
 // var d = new Date();
@@ -65,6 +82,12 @@ function show(){
 console.log(player.score)
 btn.addEventListener('click',show)
 rbtn.addEventListener('click', function (){console.log( "main" + count); count = right(count, player.score); console.log( "after" + count);});
+// console.log('hi')
+// wrbtn.forEach(function(i){
+//         var test = wrbtn[i];
+//         console.log(test)
+//         test.addEventListener('click', function(){count = wrong(count);})
+// });
 wbtn1.addEventListener('click', function(){count = wrong(count);})
 wbtn2.addEventListener('click', function(){count = wrong(count);})
 wbtn3.addEventListener('click', function(){count = wrong(count);})
