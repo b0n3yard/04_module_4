@@ -9,7 +9,7 @@
  console.log(wrbtn)
  var wbtn3 = document.querySelector('.wans3');
  var rbtn = document.querySelector('.rans1');
- var totaltime = 10;
+ var totaltime = 30;
  var end = document.querySelector('.end');
  function exam(){
     
@@ -24,7 +24,8 @@ function wrong(){
     var correct = 'wrong';
     document.querySelector('.right').innerHTML = correct;
     nextquest(count);
-    return count, totaltime;
+    console.log("wrong cont: " + count)
+    return count;
 }
 function right(count){
     console.log(count);
@@ -55,17 +56,16 @@ function nextquest(count){
     document.querySelector('.wans2').innerHTML = wans2[count];
     document.querySelector('.wans3').innerHTML = wans3[count];
     document.querySelector('.rans1').innerHTML = rans1[count];
-    // if(count >= questions.length){
-        
-    //     endgame();
-    // }
 }   
 var btn = document.querySelector('#generate')
 
 function show(){
+    document.querySelector('.butn').style.display = 'none';
     document.querySelector('.hidden').style.display = 'block';
     var timer = setInterval(function(){
         totaltime--
+        console.log("totaltime: " + totaltime)
+        console.log("cont: " + count)
         var minutes = Math.floor(totaltime / 60);
         var secs = totaltime % 60;
         if ( count >= questions.length || totaltime <= 0){
@@ -79,18 +79,24 @@ function show(){
     nextquest(count);
 }
 function endgame(timer){
-    clearInterval(timer);
+    
     document.querySelector('.hidden').style.display = 'none';
     document.querySelector('.end').style.display = 'block';
+    var len = document.querySelector('#len');
     console.log("hi");
-    end.textContent = 'your score is: ' + player.score;
-    player.name =  prompt('enter name');
-    var info = player.name + "| " + player.score;
-    var strinfo = info.toString();
-    console.log("stringinfo: " + strinfo);
-    localStorage.setItem('in', strinfo);
-    lsnames = localStorage.getItem('in');
-    console.log(lsnames);
+      
+    // player.name =  prompt('enter name');
+    var tweb = 'your score is: ' + player.score;
+
+     document.querySelector('.end p').innerHTML = tweb;
+    
+    // var strinfo = info.toString();
+    // console.log("stringinfo: " + strinfo);
+    localStorage.setItem('playername', player.name);
+    localStorage.setItem('playerscore', player.score);
+    lsnames = localStorage.getItem('playername');
+    lsscores = localStorage.getItem('playerscore');
+    console.log(lsnames + ': '+ lsscores);
 
 }
 
@@ -108,5 +114,6 @@ rbtn.addEventListener('click', function (){console.log( "main" + count); count =
 wbtn1.addEventListener('click', function(){count = wrong(count);})
 wbtn2.addEventListener('click', function(){count = wrong(count);})
 wbtn3.addEventListener('click', function(){count = wrong(count);})
-lsnames = localStorage.getItem('in');
-console.log(lsnames)
+lsnames = localStorage.getItem('playername');
+lsscores = +localStorage.getItem('playerscore');
+console.log(lsnames + ': '+ lsscores)
