@@ -1,8 +1,38 @@
+h1{
+    text-align: center;
+}
+#len{
+    position: relative;
+    left: 250px;
+}
+.end p{
+    text-align: center;
+}
+button{
+    position: relative;
+    width:400px;
+    height: 25px;
+    background-color: purple;
+    color: white;
+    border-radius: 10px;
+    margin:  0 auto;
+    left: 400px;
+
+}
 .hidden{
     display: none;
+    margin: auto;
 
+}
+.hi{
+    width:400px;
 }
 .end{
     display:none;
     color:green;
+}
+.final{
+    display: none;
+    text-align: center;
+
 }
