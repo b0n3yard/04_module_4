@@ -10,7 +10,7 @@ var wbtn1 = document.querySelector('.wans1');
 var wbtn2 = document.querySelector('.wans2');
 var wbtn3 = document.querySelector('.wans3');
 var rbtn = document.querySelector('.rans1');
-var totaltime = 20;
+var totaltime = 60;
 var len = '';
 var end = document.querySelector('.end');
 // var lsnames = '';
@@ -76,6 +76,9 @@ function tstfnc(){
             endgame();
 
         }
+        if (secs < 10){
+            secs = '0' + secs;
+        }
         document.querySelector('.timer').innerHTML = minutes + ':' + secs;
     }, 1000);
 
@@ -89,8 +92,8 @@ function gtinfo(e) {
     lsnames = localStorage.getItem('playername');
     lsscores = localStorage.getItem('playerscore');
     if (lsnames === null) {
-        localStorage.setItem('playername', player.name);
-        localStorage.setItem('playerscore', player.score);
+        localStorage.setItem('playername', 'no previous name');
+        localStorage.setItem('playerscore', 'no previous score');
     }
     cleanup();
 
