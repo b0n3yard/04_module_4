@@ -2,6 +2,7 @@ var player = {
     name: 'hello',
     score: 0
 }
+var btn = document.querySelector('#generate')
 var count = 0;
 var score = 0;
 var wrbtn = document.querySelectorAll('.wrbtn');
@@ -58,22 +59,10 @@ function nextquest(count) {
     document.querySelector('.wans3').innerHTML = wans3[count];
     document.querySelector('.rans1').innerHTML = rans1[count];
 }
-var btn = document.querySelector('#generate')
 
 function show() {
     document.querySelector('.butn').style.display = 'none';
     document.querySelector('.hidden').style.display = 'block';
-    // var timer = setInterval(function () {
-    //     totaltime--
-    //     var minutes = Math.floor(totaltime / 60);
-    //     var secs = totaltime % 60;
-    //     if (count >= questions.length || totaltime <= 0) {
-    //         clearInterval(timer);
-    //         endgame();
-
-    //     }
-    //     document.querySelector('.timer').innerHTML = minutes + ':' + secs;
-    // }, 1000);
     tstfnc();
     nextquest(count);
 }
@@ -114,6 +103,8 @@ function endgame(timer) {
 }
 
 function cleanup() {
+    lsnames = localStorage.getItem('playername');
+    lsscores = localStorage.getItem('playerscore');
     document.querySelector('.end').style.display = 'none';
     document.querySelector('.final').style.display = 'block';
     document.querySelector('#cscore').innerText = player.name + ": " + player.score;
