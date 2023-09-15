@@ -1,9 +1,19 @@
 h1{
+    
     text-align: center;
+    margin: 25px auto;
 }
 #len{
     position: relative;
-    left: 250px;
+    left: 33%;
+    width: 300px;
+    height: 50px;
+}
+.btn{
+    position: relative;
+    left: 39%;
+    height: 50px;
+
 }
 .end p{
     text-align: center;
@@ -11,12 +21,12 @@ h1{
 button{
     position: relative;
     width:400px;
-    height: 25px;
+    height: 50px;
     background-color: purple;
     color: white;
     border-radius: 10px;
     margin:  0 auto;
-    left: 400px;
+    left: 730px;
 
 }
 .hidden{
@@ -24,15 +34,47 @@ button{
     margin: auto;
 
 }
-.hi{
-    width:400px;
+.timer{
+    position: relative;
+    left: 49%;
 }
+
+.question{
+    text-align:center;
+    font-size: 30px;
+    font-weight: 600;
+
+}
+.display{
+    display: flex;
+    position: relative;
+    font-size: 20px;
+    border-top:5px solid black;
+    margin:25px 46%;
+}
+.right{
+    margin: 0 10px;
+    font-style: italic;
+    opacity: 69%;
+}
+
 .end{
     display:none;
     color:green;
+}
+#sub{
+    left:613px;
 }
 .final{
     display: none;
     text-align: center;
 
+}
+.final p{
+    border: 5px black solid;
+    width: 200px;
+    left: 43%;
+    position: relative;
+    font-size: 20px;
+    font-weight: bold;
 }
