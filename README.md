@@ -18,4 +18,6 @@ to insall this project, clone the repository from [github](https://github.com/b0
 Michael Klein
 and a lot of help from [W3schools](https://www.w3schools.com/js/default.asp)
 
+Questions and answers sourced from [ProProfs Quizzes](https://www.proprofs.com/quiz-school/story.php?title=web-design-quiz_230d) and [StudytoSuccess.com](https://studytosuccess.in/web-designing-mcq/)
+
 ## Licence
