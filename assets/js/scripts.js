@@ -29,8 +29,6 @@ function wrong() {
 }
 function right(count) {
     count = count + 1;
-    player.score = player.score + 1;
-    document.querySelector('.score').innerHTML = player.score;
     var correct = 'correct';
     document.querySelector('.right').innerHTML = correct;
     if(count >= questions.length){
@@ -86,6 +84,7 @@ function gtinfo(e) {
     e.preventDefault()
     len = document.querySelector('#len').value;
     player.name = len;
+    player.score = totaltime;
     var tweb = 'your score is: ' + player.score;
     document.querySelector('.end p').innerHTML = tweb;
     lsnames = localStorage.getItem('playername');
