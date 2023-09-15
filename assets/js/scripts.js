@@ -13,14 +13,13 @@ var rbtn = document.querySelector('.rans1');
 var totaltime = 60;
 var len = '';
 var end = document.querySelector('.end');
-// var lsnames = '';
 var sbbtn = document.querySelector('#sub')
 
 function wrong() {
     count = count + 1;
 
     document.createElement('p').innerHTML = 'correct'
-    totaltime = totaltime - 4;
+    totaltime = totaltime - 9;
 
     var correct = 'wrong';
     document.querySelector('.right').innerHTML = correct;
@@ -46,13 +45,13 @@ function right(count) {
 
 
 }
-var questions = new Array('HTML stands for', 'WWW stands for', 'HTTP stands for');
+var questions = new Array('HTML stands for', 'WWW stands for', 'HTTP stands for', 'A program that connects you to a website', 'The part of a CSS rule which specifies which element(s) are to be styled.');
 
 function nextquest(count) {
-    var wans1 = new Array('Hypo text made up language', 'World Wide Weapon', 'Hyper text Traditional Protocol');
-    var wans2 = new Array('Heuristic language', 'World Wide Windows', ' Hyper Text Transfer Program');
-    var wans3 = new Array('Hypertext Manipulation language', 'World Wide Writers', 'Hypertext Transmission Protocol');
-    var rans1 = new Array('Hypertext markup language', 'World Wide Web', 'Hypertext Transfer Protocol');
+    var wans1 = new Array('Hypo text made up language', 'World Wide Weapon', 'Hyper text Traditional Protocol', 'Notepad++', 'Declaration');
+    var wans2 = new Array('Heuristic language', 'World Wide Windows', ' Hyper Text Transfer Program', 'DreamWeaver', 'Property');
+    var wans3 = new Array('Hypertext Manipulation language', 'World Wide Writers', 'Hypertext Transmission Protocol', 'Search Engine', 'Value');
+    var rans1 = new Array('Hypertext markup language', 'World Wide Web', 'Hypertext Transfer Protocol', 'Browser', 'Selector');
     document.querySelector('.question').innerHTML = questions[count];
     document.querySelector('.wans1').innerHTML = wans1[count];
     document.querySelector('.wans2').innerHTML = wans2[count];
